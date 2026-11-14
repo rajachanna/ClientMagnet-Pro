@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer"><title>ClientMagnet Pro | Website Audit Studio</title>
+<style>
+:root{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#eaf2ff;background:#090e19}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 85% -15%,#21375b 0,transparent 36%),#090e19}
+.wrap{max-width:1220px;margin:0 auto;padding:0 23px 60px}
+nav{display:flex;align-items:center;justify-content:space-between;min-height:86px;border-bottom:1px solid #25334a;gap:12px}
+.brand{display:flex;align-items:center;gap:12px;font-size:23px;font-weight:840;letter-spacing:-.6px}.logo{background:linear-gradient(140deg,#52ebc2,#7695fb);color:#0a2541;width:42px;height:42px;border-radius:13px;display:grid;place-items:center;font-size:23px}
+nav .right{display:flex;gap:10px;align-items:center;font-size:12px}.pill{padding:8px 12px;border-radius:30px;background:#19362e;border:1px solid #316e56;color:#7fefb2;font-weight:800;letter-spacing:.05em}
+a{color:#8ae7c9;text-decoration:none}a:hover{text-decoration:underline}
+.hero{padding:52px 0 25px}.eyebrow{color:#76e5be;font-weight:800;text-transform:uppercase;letter-spacing:.17em;font-size:11px}
+h1{font-size:clamp(32px,5vw,55px);line-height:1.08;letter-spacing:-2px;max-width:850px;margin:15px 0 17px}h1 span{color:#7fe6c2}
+p{color:#a5b5ca;line-height:1.6;max-width:710px}.sub{font-size:15px}
+.banner{border:1px solid #5b4e37;background:#28251f;padding:12px 15px;border-radius:10px;color:#e2cda3;font-size:12px;margin:8px 0 21px}
+.panels{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(300px,.8fr);gap:17px}
+.panel,.metric,.feature{background:#111b2c;border:1px solid #27374b;border-radius:17px;padding:23px}
+.panel h2{margin:0 0 4px;font-size:18px}.panel p{font-size:13px;margin:8px 0 17px}
+button,input,textarea{font:inherit;border-radius:10px}button{cursor:pointer;font-size:13px;font-weight:800;padding:12px 16px;border:0;background:#64e8b9;color:#063226;transition:filter .15s}button:hover{filter:brightness(1.08)}button.secondary{background:#263c58;color:#dce9f8}button:disabled{opacity:.5;cursor:not-allowed}
+input,textarea{background:#141f32;color:#ecf5ff;border:1px solid #344960;padding:12px 13px;width:100%;font-size:13px}
+label{display:block;color:#9facc2;font-size:12px;margin:13px 0 7px}.inline{display:flex;gap:10px;align-items:center}.inline>*{min-width:0}.inline input{flex:1}
+#message{min-height:21px;font-size:12px;color:#ffb6a9;margin-top:13px}#leadNotice{min-height:22px;font-size:12px;color:#8aefc3;margin-top:14px}
+.score-layout{display:grid;grid-template-columns:160px minmax(0,1fr);gap:20px;align-items:center;margin:15px 0 25px}
+.score-circle{height:154px;width:154px;border-radius:50%;background:conic-gradient(#5fdfb3 0 70%,#24334c 70% 100%);display:grid;place-items:center}
+.score-circle .inside{display:grid;place-items:center;background:#0f1b2c;border-radius:50%;height:125px;width:125px}.score-circle strong{font-size:47px;letter-spacing:-2px;line-height:1}.score-circle small{font-size:11px;color:#9daec2}
+.breakdown{display:grid;gap:12px}.line{display:flex;justify-content:space-between;color:#b5c4d4;font-size:13px}.track{height:6px;border-radius:6px;background:#263a50;overflow:hidden;margin-top:5px}.fill{height:100%;background:#5fe4b1;border-radius:6px}
+.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.metric{padding:13px;border-radius:11px}.metric span{font-size:12px;color:#93a3bd}.metric strong{font-size:25px;display:block;margin-top:5px}
+.checks{margin-top:17px}.item{border-top:1px solid #2b3a50;padding:13px 0;display:flex;gap:13px;align-items:flex-start}.circle{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:12px;flex-shrink:0}.pass{background:#205b43;color:#91f9c3}.fail{background:#623841;color:#ffadba}.warning{background:#654b29;color:#ffd28a}.item strong{font-size:13px}.item p{font-size:12px;max-width:initial;margin:5px 0 0}.chip{font-size:10px;color:#8fa3bc;border:1px solid #34485e;padding:5px 8px;border-radius:20px}
+.split{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}.muted{color:#94a9c1}
+footer{border-top:1px solid #26384c;margin-top:35px;padding-top:18px;font-size:12px;color:#91a2b8;line-height:1.6}
+textarea{resize:vertical;min-height:95px}.privacy{line-height:1.4;color:#a3b6cb;font-size:12px;display:flex;gap:9px}.privacy input{width:auto;min-width:18px;margin:3px 0}.code{font-size:12px;font-family:monospace;color:#aac4d8}
+@media(max-width:950px){.panels{grid-template-columns:1fr}.score-layout{grid-template-columns:135px 1fr}.score-circle{width:130px;height:130px}.score-circle .inside{width:105px;height:105px}nav .right a{display:none}}
+@media(max-width:580px){.wrap{padding:0 14px 35px}.hero{padding:30px 0 14px}.panel{padding:17px}.score-layout{grid-template-columns:1fr;justify-items:center}.breakdown{width:100%}.summary{grid-template-columns:repeat(3,1fr)}.metric strong{font-size:21px}.inline{flex-wrap:wrap}.inline button{width:100%}}
+</style></head><body>
+<div class="wrap">
+<nav><div class="brand"><div class="logo">✦</div>ClientMagnet <span style="color:#65e5b6">Pro</span></div>
+<div class="right"><span class="pill">● VERIFIED LOCAL PROTOTYPE</span><a href="/docs">API Docs</a><a href="https://github.com/rajachanna/ClientMagnet-Pro">GitHub</a></div></nav>
+<section class="hero"><div class="eyebrow">Website intelligence · Evidence-backed reports</div>
+<h1>Turn website problems into <span>clear next steps.</span></h1>
+<p class="sub">Discover technical SEO, accessibility and conversion opportunities from the visible HTML of a page. Download an evidence-backed PDF or request help without pressure.</p></section>
+<div class="banner">Demo mode uses a fictional business. Scores are our own transparent HTML diagnostics—not Google PageSpeed, Lighthouse, traffic data, or proven conversion uplift. Live scans require opt-in server configuration.</div>
+<div class="panels"><div>
+<section class="panel">
+<div class="split"><div><h2>Website audit report</h2><p>Explore a fully generated fictional example, or run an authorized inspection.</p></div><span class="chip" id="mode">SYNTHETIC SAMPLE</span></div>
+<div class="score-layout"><div class="score-circle" id="scoreCircle"><div class="inside"><strong id="score">—</strong><small>Audit score / 100</small></div></div>
+<div class="breakdown"><div><div class="line"><span>SEO fundamentals</span><b id="seo">—</b></div><div class="track"><div class="fill" id="seoBar"></div></div></div>
+<div><div class="line"><span>Accessibility HTML checks</span><b id="accessibility">—</b></div><div class="track"><div class="fill" id="accessibilityBar"></div></div></div>
+<div><div class="line"><span>Conversion signals</span><b id="conversion">—</b></div><div class="track"><div class="fill" id="conversionBar"></div></div></div></div></div>
+<div class="summary"><div class="metric"><span>Passed</span><strong id="passed">—</strong></div><div class="metric"><span>Needs attention</span><strong id="failed">—</strong></div><div class="metric"><span>Warnings</span><strong id="warnings">—</strong></div></div>
+<div class="split" style="margin-top:22px"><h2>Priority improvements</h2><button class="secondary" id="downloadDemo">Download sample PDF</button></div>
+<div class="checks" id="checks"><div class="item muted">Loading sample audit…</div></div>
+</section>
+<section class="panel" style="margin-top:17px"><h2>Operator test workspace</h2><p>Enter your operator key and supply sample HTML for a private audit, or configure live HTTPS fetching on the server. This is not an anonymous unrestricted crawler.</p>
+<label for="key">Operator key (never stored in browser storage)</label><input id="key" type="password" autocomplete="off" placeholder="Enter CM_OPERATOR_KEY">
+<label for="auditUrl">Website URL to associate with the audit</label><input id="auditUrl" type="url" placeholder="https://example.org/" value="https://sample-business.example.org/">
+<label for="html">HTML input (optional). Live requests require server opt-in.</label><textarea id="html" placeholder="Paste HTML for a provider-free, offline audit…"></textarea>
+<div class="inline" style="margin-top:14px"><button id="runAudit">Run private audit</button><button class="secondary" id="downloadPrivate" disabled>Export last private report</button></div>
+<div id="message" role="status"></div></section></div>
+<div><section class="panel"><h2>Request a website consultation</h2><p>Need help implementing the fixes? Submit your details with explicit consent. No automated outreach or messages are sent.</p>
+<label for="leadName">Your name</label><input id="leadName" maxlength="80" autocomplete="name" placeholder="e.g. Jordan Smith">
+<label for="leadEmail">Email address</label><input id="leadEmail" type="email" maxlength="254" autocomplete="email" placeholder="you@company.com">
+<label for="leadWebsite">Website (optional)</label><input id="leadWebsite" type="url" maxlength="750" placeholder="https://yourbusiness.com">
+<label for="interest">What would you like help with?</label><textarea id="interest" maxlength="160" style="min-height:85px" placeholder="SEO fixes, landing pages or custom integrations"></textarea>
+<label class="privacy"><input id="consent" type="checkbox">I consent to this information being stored to respond to my consultation request. I understand there is no automatic email marketing.</label>
+<button id="sendLead" style="width:100%;margin-top:16px">Request consultation</button><div id="leadNotice" role="status"></div></section>
+<section class="panel" style="margin-top:17px"><h2>What is actually measured?</h2>
+<div class="checks"><div class="item"><span class="circle pass">✓</span><div><strong>Search presence signals</strong><p>Page title, meta description, headings and canonical tags.</p></div></div>
+<div class="item"><span class="circle pass">✓</span><div><strong>HTML accessibility patterns</strong><p>Language, viewport, image alt, input labels and heading order.</p></div></div>
+<div class="item"><span class="circle pass">✓</span><div><strong>Conversion pathways</strong><p>Contact links, action prompts and inquiry forms.</p></div></div>
+<div class="item"><span class="circle warning">!</span><div><strong>Not measured</strong><p>No Lighthouse speed or mobile emulation, SEO rankings, actual conversions, AI accuracy or revenue prediction.</p></div></div></div>
+</section></div></div>
+<footer>Prototype by <a href="https://nextgentechdev.com">NextGen Tech Solutions</a> · <a href="https://github.com/rajachanna/ClientMagnet-Pro">Inspect source code</a> · <a href="/docs">API reference</a><p>Private operator keys stay in memory while this page is open. Consultation details are saved in the local database only, pending a real business deployment with privacy and abuse protections.</p></footer>
+</div>
+<script>
+(()=>{
+const $=id=>document.getElementById(id);let operatorKey="", privateReport=null;
+function setText(id,value){$(id).textContent=String(value)}
+function show(report){
+const score=report.scores.overall;setText("score",score);$("scoreCircle").style.background=`conic-gradient(#5fdfb3 0 ${score}%,#24334c ${score}% 100%)`;
+for(const key of ["seo","accessibility","conversion"]){setText(key,report.scores[key]+" / 100");$(key+"Bar").style.width=report.scores[key]+"%"}
+for(const k of ["passed","failed","warnings"]){setText(k,report.summary[k])}
+setText("mode",report.source==="synthetic_sample"?"SYNTHETIC SAMPLE":report.source.toUpperCase());
+const root=$("checks");root.replaceChildren();let items=report.checks.filter(c=>c.status!=="pass");if(!items.length)items=report.checks.slice(0,5);
+for(const item of items){const row=document.createElement("div");row.className="item";const marker=document.createElement("span");marker.className="circle "+item.status;marker.textContent=item.status==="pass"?"✓":item.status==="warning"?"!":"×";
+const content=document.createElement("div");const heading=document.createElement("strong");heading.textContent=item.label;const note=document.createElement("p");note.textContent=item.evidence+(item.recommendation?" · "+item.recommendation:"");content.append(heading,note);row.append(marker,content);root.appendChild(row)}
+}
+async function parse(r){if(!r.ok){let message=`HTTP ${r.status}`;try{const j=await r.json();message=typeof j.detail==='string'?j.detail:JSON.stringify(j.detail)}catch{}throw Error(message)}return r}
+fetch("/api/demo").then(parse).then(r=>r.json()).then(show).catch(e=>setText("checks",e.message));
+$("downloadDemo").onclick=()=>{location.href="/api/demo/pdf"};
+$("runAudit").onclick=async()=>{try{operatorKey=$("key").value;$("key").value="";if(!operatorKey)throw Error("Provide your operator key.");const html=$("html").value;
+const response=await parse(await fetch("/api/operator/audits",{method:"POST",headers:{"Content-Type":"application/json","X-Operator-Key":operatorKey},body:JSON.stringify({url:$("auditUrl").value,html:html||null})}));privateReport=await response.json();show(privateReport);$("downloadPrivate").disabled=false;setText("message","Private audit generated and stored locally. No emails sent.")}
+catch(e){setText("message",e.message)}};
+$("downloadPrivate").onclick=async()=>{if(!privateReport)return;try{const r=await parse(await fetch(`/api/operator/audits/${privateReport.id}/pdf`,{headers:{"X-Operator-Key":operatorKey}}));const blob=await r.blob();const u=URL.createObjectURL(blob);const a=document.createElement('a');a.href=u;a.download=`clientmagnet-${privateReport.id}.pdf`;a.click();setTimeout(()=>URL.revokeObjectURL(u),1200)}catch(e){setText("message",e.message)}};
+$("sendLead").onclick=async()=>{try{setText("leadNotice","");const response=await parse(await fetch("/api/leads",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name:$("leadName").value,email:$("leadEmail").value,website:$("leadWebsite").value,interest:$("interest").value||"Website audit consultation",consent:$("consent").checked})}));const result=await response.json();setText("leadNotice","Thank you. Your request was saved locally; reference "+result.id.slice(0,8)+".");$("consent").checked=false}catch(e){setText("leadNotice",e.message)}};
+})();
+</script></body></html>

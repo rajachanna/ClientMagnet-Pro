@@ -1,0 +1,16 @@
+services:
+  clientmagnet:
+    build: .
+    env_file: .env
+    environment:
+      CM_DB_PATH: /data/clientmagnet.sqlite
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - audits:/data
+    read_only: true
+    tmpfs:
+      - /tmp
+    restart: unless-stopped
+volumes:
+  audits:

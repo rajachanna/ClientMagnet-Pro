@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clientmagnet-pro"
+version = "0.1.0"
+description = "Security-conscious website auditor and consent-first lead magnet"
+requires-python = ">=3.11"
+authors = [{name = "Raja Channa / NextGen Tech Solutions"}]
+license = {text = "MIT"}
+readme = "README.md"
+dependencies = [
+  "fastapi>=0.112,<1",
+  "uvicorn>=0.30,<1",
+  "pydantic>=2.7,<3",
+  "beautifulsoup4>=4.12,<5",
+  "reportlab>=4,<5",
+]
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "httpx>=0.27,<1"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["clientmagnet"]
+
+[tool.setuptools.package-data]
+clientmagnet = ["static/*.html"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 105

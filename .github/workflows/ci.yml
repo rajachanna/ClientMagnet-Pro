@@ -1,0 +1,31 @@
+name: Validate audit product and demo
+on:
+  push:
+  pull_request:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install source and test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+      - name: Run automated tests
+        run: python -m pytest -q
+      - name: Run offline sample and consent demo
+        run: python scripts/demo.py
+      - name: Verify built package includes dashboard
+        run: |
+          python -m pip wheel --no-deps --no-build-isolation --wheel-dir /tmp/wheels .
+          python - <<'PY'
+          import glob,zipfile
+          wheels=glob.glob('/tmp/wheels/*.whl')
+          assert wheels,wheels
+          with zipfile.ZipFile(wheels[0]) as wheel:
+              assert any(path.endswith('clientmagnet/static/index.html') for path in wheel.namelist())
+          print('PASS - Python wheel contains dashboard HTML')
+          PY
